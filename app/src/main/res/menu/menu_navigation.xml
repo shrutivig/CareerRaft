@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_search"
+            android:icon="@android:drawable/ic_menu_search"
+            android:title="Search" />
+        <item
+            android:id="@+id/nav_offers"
+            android:icon="@drawable/ic_offer"
+            android:title="Offers For Students" />
+        <item
+            android:id="@+id/nav_councelling"
+            android:icon="@drawable/ic_councelling"
+            android:title="Career Counselling" />
+        <item
+            android:id="@+id/nav_location_listing"
+            android:icon="@drawable/ic_location"
+            android:title="Location Based Listing" />
+        <item
+            android:id="@+id/nav_institutes"
+            android:icon="@drawable/ic_location"
+            android:title="For Institutes" />
+    </group>
+
+    <group
+        android:id="@+id/group_about"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_about"
+            android:icon="@android:drawable/ic_menu_set_as"
+            android:title="About" />
+        <item
+            android:id="@+id/nav_core"
+            android:icon="@android:drawable/ic_menu_set_as"
+            android:title="Core Values" />
+        <item
+            android:id="@+id/nav_team"
+            android:icon="@android:drawable/ic_menu_set_as"
+            android:title="Team" />
+        <item
+            android:id="@+id/nav_privacy"
+            android:icon="@android:drawable/ic_menu_set_as"
+            android:title="Privacy" />
+        <item
+            android:id="@+id/nav_tnc"
+            android:icon="@android:drawable/ic_menu_set_as"
+            android:title="Terms and Conditions" />
+        <item
+            android:id="@+id/nav_contact"
+            android:icon="@android:drawable/ic_menu_set_as"
+            android:title="Contact Us" />
+    </group>
+
+</menu>
