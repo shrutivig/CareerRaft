@@ -1,11 +1,11 @@
-package Model;
+package careerraft.app.android.sec.com.careerraft.Model;
 
 import com.google.gson.annotations.SerializedName;
 
 /**
  * Created by shruti.vig on 3/10/16.
  */
-public class PreSchool {
+public class RaftDetail {
 
     @SerializedName("title")
     private String preSchoolTitle;
@@ -13,7 +13,7 @@ public class PreSchool {
     @SerializedName("details")
     private String preSchoolDetail;
 
-    public PreSchool(String title, String details) {
+    public RaftDetail(String title, String details) {
         this.preSchoolTitle = title;
         this.preSchoolDetail = details;
     }

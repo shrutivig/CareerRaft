@@ -8,7 +8,6 @@ import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -16,8 +15,6 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -31,8 +28,8 @@ import java.io.InputStream;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
-import Adapter.CategoryAdapter;
-import Model.Category;
+import careerraft.app.android.sec.com.careerraft.Adapter.CategoryAdapter;
+import careerraft.app.android.sec.com.careerraft.Model.Category;
 
 public class RaftActivity extends BaseActivity {
 
@@ -91,7 +88,7 @@ public class RaftActivity extends BaseActivity {
                         view.setTransitionName("transitionCategory");
                     }
 
-                    Intent intent = new Intent(RaftActivity.this, PreSchoolActivity.class);
+                    Intent intent = new Intent(RaftActivity.this, RaftDetailActivity.class);
                     intent.putExtra("category_name", item.getCategoryTitle());
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                         ActivityOptionsCompat options = ActivityOptionsCompat.

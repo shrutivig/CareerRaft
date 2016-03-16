@@ -20,13 +20,13 @@ import java.io.InputStream;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
-import Adapter.PreSchoolAdapter;
-import Model.PreSchool;
+import careerraft.app.android.sec.com.careerraft.Adapter.RaftDetailAdapter;
+import careerraft.app.android.sec.com.careerraft.Model.RaftDetail;
 
 /**
  * Created by shruti.vig on 3/10/16.
  */
-public class PreSchoolActivity extends BaseActivity {
+public class RaftDetailActivity extends BaseActivity {
 
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
@@ -36,7 +36,7 @@ public class PreSchoolActivity extends BaseActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_preschool);
+        setContentView(R.layout.activity_raft_detail);
 
         TextView headerText = (TextView) findViewById(R.id.header_text);
 
@@ -50,30 +50,30 @@ public class PreSchoolActivity extends BaseActivity {
             getSupportActionBar().setTitle(intent.getStringExtra("category_name"));
         }
 
-        mRecyclerView = (RecyclerView) findViewById(R.id.recycler_pre_school);
+        mRecyclerView = (RecyclerView) findViewById(R.id.recycler_raft_detail);
         mRecyclerView.setHasFixedSize(true);
 
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
         try {
-            mAdapter = new PreSchoolAdapter(getDataFromAssetJson(), PreSchoolActivity.this);
+            mAdapter = new RaftDetailAdapter(getDataFromAssetJson(), RaftDetailActivity.this);
         } catch (JSONException e) {
             e.printStackTrace();
         }
         mRecyclerView.setAdapter(mAdapter);
     }
 
-    public ArrayList<PreSchool> getDataFromAssetJson() throws JSONException {
+    public ArrayList<RaftDetail> getDataFromAssetJson() throws JSONException {
 
         JSONObject jsonObject = new JSONObject(loadJSONFromAsset());
 
-        JSONArray jsonPreSchoolArray = jsonObject.getJSONArray("preSchool");
+        JSONArray jsonRaftDetail = jsonObject.getJSONArray("raftDetail");
 
         Gson gson = new Gson();
-        Type type = new TypeToken<ArrayList<PreSchool>>() {
+        Type type = new TypeToken<ArrayList<RaftDetail>>() {
         }.getType();
-        ArrayList<PreSchool> fromJson = gson.fromJson(jsonPreSchoolArray.toString(), type);
+        ArrayList<RaftDetail> fromJson = gson.fromJson(jsonRaftDetail.toString(), type);
 
         return fromJson;
     }
@@ -82,7 +82,7 @@ public class PreSchoolActivity extends BaseActivity {
 
         String json;
         try {
-            InputStream is = this.getAssets().open("preSchool.json");
+            InputStream is = this.getAssets().open("RaftDetail.json");
             int size = is.available();
             byte[] buffer = new byte[size];
             is.read(buffer);

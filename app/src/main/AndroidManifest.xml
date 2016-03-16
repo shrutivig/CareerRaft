@@ -19,7 +19,7 @@
         </activity>
 
         <activity
-            android:name=".PreSchoolActivity"
+            android:name=".RaftDetailActivity"
             android:theme="@style/AppTheme.ActionBar" />
     </application>
 

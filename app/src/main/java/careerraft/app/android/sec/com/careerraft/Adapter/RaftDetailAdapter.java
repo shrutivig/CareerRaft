@@ -1,38 +1,34 @@
-package Adapter;
+package careerraft.app.android.sec.com.careerraft.Adapter;
 
 import android.content.Context;
-import android.os.Handler;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import Model.Category;
-import Model.PreSchool;
+import careerraft.app.android.sec.com.careerraft.Model.RaftDetail;
 import careerraft.app.android.sec.com.careerraft.R;
 
 /**
  * Created by shruti.vig on 3/10/16.
  */
-public class PreSchoolAdapter extends RecyclerView.Adapter<PreSchoolAdapter.ViewHolder> {
+public class RaftDetailAdapter extends RecyclerView.Adapter<RaftDetailAdapter.ViewHolder> {
 
-    private ArrayList<PreSchool> mPreSchoolList;
+    private ArrayList<RaftDetail> mPreSchoolList;
     private Context mContext;
 
-    public PreSchoolAdapter(ArrayList<PreSchool> categoryList, Context context) {
+    public RaftDetailAdapter(ArrayList<RaftDetail> categoryList, Context context) {
         this.mPreSchoolList = categoryList;
         this.mContext = context;
     }
 
     @Override
-    public PreSchoolAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public RaftDetailAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_category, parent, false);
         ViewHolder vh = new ViewHolder(v);
@@ -40,7 +36,7 @@ public class PreSchoolAdapter extends RecyclerView.Adapter<PreSchoolAdapter.View
     }
 
     @Override
-    public void onBindViewHolder(PreSchoolAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(RaftDetailAdapter.ViewHolder holder, int position) {
         holder.mHeaderText.setText(mPreSchoolList.get(position).getPreSchoolTitle());
         holder.mDetailText.setText(mPreSchoolList.get(position).getPreSchoolDetail());
     }

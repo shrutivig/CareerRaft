@@ -1,4 +1,4 @@
-package Model;
+package careerraft.app.android.sec.com.careerraft.Model;
 
 import com.google.gson.annotations.SerializedName;
 
