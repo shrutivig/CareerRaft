@@ -1,8 +1,11 @@
 package careerraft.app.android.sec.com.careerraft;
 
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.ActionBarDrawerToggle;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -13,6 +16,8 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -29,7 +34,7 @@ import java.util.ArrayList;
 import Adapter.CategoryAdapter;
 import Model.Category;
 
-public class RaftActivity extends AppCompatActivity {
+public class RaftActivity extends BaseActivity {
 
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
@@ -39,7 +44,7 @@ public class RaftActivity extends AppCompatActivity {
     private ActionBarDrawerToggle mDrawerToggle;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_drawer_main);
 
@@ -78,7 +83,25 @@ public class RaftActivity extends AppCompatActivity {
         mDrawerLayout.setDrawerListener(mDrawerToggle);
 
         try {
-            mAdapter = new CategoryAdapter(getDataFromAssetJson());
+            mAdapter = new CategoryAdapter(getDataFromAssetJson(), new CategoryAdapter.OnItemClickListenerCustom() {
+                @Override
+                public void onItemClickCustom(Category item, View view) {
+
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                        view.setTransitionName("transitionCategory");
+                    }
+
+                    Intent intent = new Intent(RaftActivity.this, PreSchoolActivity.class);
+                    intent.putExtra("category_name", item.getCategoryTitle());
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                        ActivityOptionsCompat options = ActivityOptionsCompat.
+                                makeSceneTransitionAnimation(RaftActivity.this, view, "transitionCategory");
+                        startActivity(intent, options.toBundle());
+                    } else {
+                        startActivity(intent);
+                    }
+                }
+            });
         } catch (JSONException e) {
             e.printStackTrace();
         }

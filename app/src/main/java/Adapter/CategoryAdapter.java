@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -19,10 +20,16 @@ import careerraft.app.android.sec.com.careerraft.R;
 
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHolder> {
 
-    private ArrayList<Category> mCategoryList;
+    public interface OnItemClickListenerCustom {
+        void onItemClickCustom(Category item, View view);
+    }
 
-    public CategoryAdapter(ArrayList<Category> categoryList) {
-        mCategoryList = categoryList;
+    private ArrayList<Category> mCategoryList;
+    private final OnItemClickListenerCustom listener;
+
+    public CategoryAdapter(ArrayList<Category> categoryList, OnItemClickListenerCustom listener) {
+        this.mCategoryList = categoryList;
+        this.listener = listener;
     }
 
     @Override
@@ -38,6 +45,8 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         holder.mHeaderText.setText(mCategoryList.get(position).getCategoryTitle());
         holder.mDetailText.setText(mCategoryList.get(position).getCategoryDetail());
+
+        holder.bindClickListener(mCategoryList.get(position), listener);
 
     }
 
@@ -56,6 +65,16 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
             mHeaderText = (TextView) v.findViewById(R.id.text_title);
             mDetailText = (TextView) v.findViewById(R.id.text_detail);
             mImageCategory = (ImageView) v.findViewById(R.id.image_title);
+        }
+
+        public void bindClickListener(final Category item, final OnItemClickListenerCustom listener) {
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener.onItemClickCustom(item, itemView);
+                }
+            });
         }
     }
 }

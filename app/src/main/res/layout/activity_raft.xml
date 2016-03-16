@@ -8,6 +8,7 @@
     tools:context=".RaftActivity">
 
     <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar"
         android:layout_width="match_parent"
         android:layout_height="180dp"
         android:fitsSystemWindows="true"
@@ -52,14 +53,13 @@
                     android:layout_marginRight="@dimen/margin_40"
                     android:background="@drawable/background_search_bar"
                     android:drawableRight="@android:drawable/ic_search_category_default"
+                    android:focusable="true"
                     android:hint="Search Course, Institute"
-                    android:focusable="false"
                     android:paddingLeft="@dimen/margin_10"
                     android:paddingRight="@dimen/margin_10"
                     android:textColorHint="@android:color/darker_gray"
                     android:textSize="@dimen/text_size_large" />
             </FrameLayout>
-
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
@@ -76,10 +76,9 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
-        android:layout_marginBottom="@dimen/margin_50"
         android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/margin_50"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
-
 
     <include layout="@layout/layout_bottom" />
 
