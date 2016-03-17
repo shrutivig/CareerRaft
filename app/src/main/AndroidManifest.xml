@@ -14,13 +14,17 @@
             android:windowSoftInputMode="stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".RaftDetailActivity"
             android:theme="@style/AppTheme.ActionBar" />
+        <activity
+            android:name=".CoreValuesActivity"
+            android:label="@string/title_activity_core_values"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>
