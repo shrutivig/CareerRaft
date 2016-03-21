@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        android:background="@drawable/core_values"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="true">
+
+            <TextView
+                android:id="@+id/core_value_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="@dimen/margin_20"
+                android:layout_marginTop="@dimen/margin_10"
+                android:background="@drawable/text_view_oval"
+                android:gravity="center"
+                android:padding="@dimen/margin_2"
+                android:text="INNOVATION"
+                android:textColor="@android:color/holo_green_dark"
+                android:textSize="@dimen/text_size_large"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/core_value_detail_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/margin_10"
+                android:gravity="center"
+                android:text="Creativity is at the core of our business values. The team is given the freedom to take informed, responsible risks."
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="true">
+
+            <TextView
+                android:id="@+id/core_value_detail_2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/margin_10"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="We are ever evolving and believe in driving change, embracing every opportunity with open arms."
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/core_value_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginRight="@dimen/margin_20"
+                android:background="@drawable/text_view_oval"
+                android:gravity="center"
+                android:padding="@dimen/margin_2"
+                android:text="CHANGE"
+                android:textColor="@android:color/holo_red_dark"
+                android:textSize="@dimen/text_size_large"
+                android:textStyle="bold"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="true">
+
+            <TextView
+                android:id="@+id/core_value_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_20"
+                android:background="@drawable/text_view_oval"
+                android:gravity="center"
+                android:padding="@dimen/margin_2"
+                android:text="OPENNESS"
+                android:textColor="@android:color/holo_blue_dark"
+                android:textSize="@dimen/text_size_large"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/core_value_detail_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/margin_10"
+                android:layout_marginLeft="@dimen/margin_5"
+                android:gravity="center"
+                android:text="We encourage every team member to share ideas and feedback openly thereby building strong relationships built on Trust and Faith."
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="true">
+
+            <TextView
+                android:id="@+id/core_value_detail_4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/margin_10"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="Every member owns the task they take up. We foster collaboration while building individual accountability."
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/core_value_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginRight="@dimen/margin_20"
+                android:background="@drawable/text_view_oval"
+                android:gravity="center"
+                android:padding="@dimen/margin_2"
+                android:text="OWNERSHIP"
+                android:textColor="@android:color/holo_orange_light"
+                android:textSize="@dimen/text_size_large"
+                android:textStyle="bold"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="true">
+
+            <TextView
+                android:id="@+id/core_value_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_20"
+                android:background="@drawable/text_view_oval"
+                android:gravity="center"
+                android:padding="@dimen/margin_2"
+                android:text="HONESTY"
+                android:textColor="@android:color/holo_purple"
+                android:textSize="@dimen/text_size_large"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/core_value_detail_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/margin_10"
+                android:gravity="center"
+                android:text="We believe in doing the right thing under all circumstances."
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:visibility="gone" />
+        </LinearLayout>
+
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>

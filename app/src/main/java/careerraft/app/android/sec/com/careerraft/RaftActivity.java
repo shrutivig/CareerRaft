@@ -183,6 +183,10 @@ public class RaftActivity extends BaseActivity {
                     public boolean onNavigationItemSelected(final MenuItem menuItem) {
 
                         mDrawerLayout.closeDrawers();
+
+                        if (menuItem.getTitle().equals("Core Values")) {
+                            startActivity(new Intent(RaftActivity.this, CoreValuesActivity.class));
+                        }
                         return true;
                     }
                 });
