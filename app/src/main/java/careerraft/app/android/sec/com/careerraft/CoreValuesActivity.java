@@ -5,16 +5,22 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class CoreValuesActivity extends AppCompatActivity {
+public class CoreValuesActivity extends BaseActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_core_values);
+        if (getSupportActionBar() != null)
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        getSupportActionBar().setTitle("Core Values");
 
         final TextView coreValue1 = (TextView) findViewById(R.id.core_value_1);
         final TextView coreValueDetail1 = (TextView) findViewById(R.id.core_value_detail_1);
@@ -80,6 +86,12 @@ public class CoreValuesActivity extends AppCompatActivity {
             }
 
         }, 5000);
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_toolbar_with_home, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 
 }

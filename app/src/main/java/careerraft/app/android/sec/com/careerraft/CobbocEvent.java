@@ -8,7 +8,7 @@ public class CobbocEvent {
     public static final int LOGOUT = 2;
     public static final int SIGN_UP = 3;
     public static final int FORGOT_PASSWORD = 4;
-    public static final int GENERATE_AND_SEND_OTP = 5;
+    public static final int GET_RAFT_DETAIL_CATEGORY = 5;
     public static final int OTP_VERIFICATION = 6;
 
 

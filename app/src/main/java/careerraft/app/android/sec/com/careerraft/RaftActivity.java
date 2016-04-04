@@ -187,6 +187,10 @@ public class RaftActivity extends BaseActivity {
                         if (menuItem.getTitle().equals("Core Values")) {
                             startActivity(new Intent(RaftActivity.this, CoreValuesActivity.class));
                         }
+
+                        if (menuItem.getTitle().equals("Team")) {
+                            startActivity(new Intent(RaftActivity.this, TeamActivity.class));
+                        }
                         return true;
                     }
                 });

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.widget.TextView;
@@ -11,6 +12,8 @@ import android.widget.TextView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -31,12 +34,16 @@ public class RaftDetailActivity extends BaseActivity {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
+    private Session mSession;
+    private String mCategoryId;
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_raft_detail);
+
+        mSession = Session.getInstance(this);
 
         TextView headerText = (TextView) findViewById(R.id.header_text);
 
@@ -48,6 +55,7 @@ public class RaftDetailActivity extends BaseActivity {
         if (intent != null) {
             headerText.setText(intent.getStringExtra("category_name"));
             getSupportActionBar().setTitle(intent.getStringExtra("category_name"));
+            mCategoryId = intent.getStringExtra("category_name");
         }
 
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_raft_detail);
@@ -75,6 +83,9 @@ public class RaftDetailActivity extends BaseActivity {
         }.getType();
         ArrayList<RaftDetail> fromJson = gson.fromJson(jsonRaftDetail.toString(), type);
 
+
+        mSession.getRaftDetailSubCategories(mCategoryId);
+
         return fromJson;
     }
 
@@ -100,6 +111,34 @@ public class RaftDetailActivity extends BaseActivity {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_toolbar_with_home, menu);
         return super.onCreateOptionsMenu(menu);
+    }
+
+    @Subscribe
+    public void onEventMainThread(final CobbocEvent event) {
+
+        if (event.getType() == CobbocEvent.GET_RAFT_DETAIL_CATEGORY) {
+            if (event.getStatus()) {
+                Log.d("SHRUTI", "AAYA IF");
+
+            } else {
+                Log.d("SHRUTI", "AAYA else");
+            }
+
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (EventBus.getDefault().isRegistered(this))
+            EventBus.getDefault().unregister(this);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (!EventBus.getDefault().isRegistered(this))
+            EventBus.getDefault().register(this);
     }
 
 }

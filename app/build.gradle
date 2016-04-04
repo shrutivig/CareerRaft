@@ -32,4 +32,6 @@ dependencies {
     compile('de.keyboardsurfer.android.widget:crouton:1.8.+@aar') {
         exclude module: 'support-v7'
     }
+
+    compile 'de.hdodenhof:circleimageview:2.0.0'
 }

@@ -292,4 +292,41 @@ public class Session {
     }
 
 
+    public void getRaftDetailSubCategories(String categoryId) {
+
+        final Map p = new HashMap<>();
+        p.put(Constants.CATEGORY_ID, categoryId);
+
+        postFetch("/api/courses/", p, new Task() {
+            @Override
+            public void onSuccess(JSONObject jsonObject) {
+                try {
+                    int status = jsonObject.getInt(Constants.STATUS);
+                    if (status < 0) {
+                        eventBus.post(new CobbocEvent(CobbocEvent.GET_RAFT_DETAIL_CATEGORY, false, jsonObject));
+                    } else {
+                        eventBus.post(new CobbocEvent(CobbocEvent.GET_RAFT_DETAIL_CATEGORY, true, jsonObject.getString(Constants.MESSAGE)));
+                    }
+                } catch (JSONException e) {
+                    eventBus.post(new CobbocEvent(CobbocEvent.GET_RAFT_DETAIL_CATEGORY, false));
+                }
+            }
+
+            @Override
+            public void onSuccess(String response) {
+
+            }
+
+            @Override
+            public void onError(Throwable throwable) {
+                eventBus.post(new CobbocEvent(CobbocEvent.GET_RAFT_DETAIL_CATEGORY, false, "An error occurred while trying to sign you up. Please try again later."));
+            }
+
+            @Override
+            public void onProgress(int percent) {
+
+            }
+        }, Request.Method.POST);
+    }
+
 }

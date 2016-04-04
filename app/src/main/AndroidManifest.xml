@@ -23,8 +23,10 @@
             android:theme="@style/AppTheme.ActionBar" />
         <activity
             android:name=".CoreValuesActivity"
-            android:label="@string/title_activity_core_values"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme.ActionBar" />
+        <activity
+            android:name=".TeamActivity"
+            android:theme="@style/AppTheme.ActionBar" />
     </application>
 
 </manifest>
