@@ -83,9 +83,6 @@ public class RaftDetailActivity extends BaseActivity {
         }.getType();
         ArrayList<RaftDetail> fromJson = gson.fromJson(jsonRaftDetail.toString(), type);
 
-
-        mSession.getRaftDetailSubCategories(mCategoryId);
-
         return fromJson;
     }
 

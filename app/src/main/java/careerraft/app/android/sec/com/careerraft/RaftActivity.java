@@ -39,11 +39,13 @@ public class RaftActivity extends BaseActivity {
 
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
+    private Session mSession;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_drawer_main);
+        mSession = Session.getInstance(this);
 
         final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -84,6 +86,7 @@ public class RaftActivity extends BaseActivity {
                 @Override
                 public void onItemClickCustom(Category item, View view) {
 
+                    mSession.getRaftDetailSubCategories(item.getCategoryTitle());
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                         view.setTransitionName("transitionCategory");
                     }
@@ -190,6 +193,10 @@ public class RaftActivity extends BaseActivity {
 
                         if (menuItem.getTitle().equals("Team")) {
                             startActivity(new Intent(RaftActivity.this, TeamActivity.class));
+                        }
+
+                        if (menuItem.getTitle().equals("About")) {
+                            startActivity(new Intent(RaftActivity.this, AboutUsActivity.class));
                         }
                         return true;
                     }
